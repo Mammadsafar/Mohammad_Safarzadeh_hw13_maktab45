@@ -1,0 +1,11 @@
+body {
+    background-color: goldenrod;
+}
+
+p {
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 100px 500px 0px 600px;
+    padding: 20px
+}

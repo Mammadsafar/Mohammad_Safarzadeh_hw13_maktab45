@@ -6,32 +6,25 @@ const path = require('path');
 
 let ages = [20, 34, 23, 45, 76];
 
-// router.get('/', function (req, res){
-//     res.send("Hello From Things")
-// })
-
-console.log("=============>");
 
 function find_user(user) {
     let data = fs.readFileSync("./routers/file/user.txt", "utf8");
     data = JSON.parse(data);
-    // console.log(data);
-    // for (var i=0;i<data.length;i++) {
-  // }
+
     for (const i in data) {
         console.log(data[i]);
 
         if (data[i].userName == user.username && data[i].password == user.password){
             return data[i];
         }
-        // console.log();
+
 
     }return false;
 
 }
 
 
-router.post('/getUserInfo', (req, res) => {
+router.post('/getUser', (req, res) => {
     console.log(req.url);
 
     let User;

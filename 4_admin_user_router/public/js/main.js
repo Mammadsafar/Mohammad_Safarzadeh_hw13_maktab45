@@ -1,6 +1,4 @@
 
-let AdminGet;
-
 $(document).ready(() => {
     $('#user').on('click', (e) => {
         console.log(e);
@@ -12,7 +10,7 @@ $(document).ready(() => {
         })
         $.ajax({
             data: user,
-            url: '/user/getUser/getUserInfo',
+            url: '/user/getUser',
             method: "POST",
             success: function (data, a, b) {
 
@@ -35,26 +33,16 @@ $(document).ready(() => {
     })
 
     $('#admin').on('click', (e) => {
-        // e.preventDefault();
-        console.log("get");
+
         $.ajax({
-            data: user,
             url: '/admin/getAllUsers',
             method: "GET",
-            success: function (data, a, b) {
-                console.log(b);
-                console.log("get");
-                AdminGet =JSON.stringify(data);
-                console.log(data);
-                alert(AdminGet)
-                // if (b.status === 200) {
-                // } else {
-                //     alert("This User does not exist")
-                // }
+            success: function (data) {
+
+                alert(JSON.parse(data))
+
             },
             error: function (err) {
-                console.log(err);
-
                 console.log(err);
             }
         })

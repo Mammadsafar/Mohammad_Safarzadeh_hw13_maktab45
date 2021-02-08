@@ -8,10 +8,11 @@ const bodyParser = require('body-parser');
 app.use(express.static(path.join(__dirname, "public")))
 
 
-app.use('/user/getUser', user)
+
+app.use('/user', user)
 // app.use('/getUser', user)
 console.log("admin");
-app.use('/admin/getAllUsers', user)
+app.use('/admin', admin)
 console.log("after admin");
 
 // app.get('/user/getUser', (req, res) => {
