@@ -7,38 +7,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+        <script src="https://kit.fontawesome.com/1229ccb1cc.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../css/contactUs.css">
+        <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="/css/pageStyle.css">
-    <title>Document</title>
+    <title>Contact Us</title>
 </head>
 
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li>
-            </ul>
+    <div class='navbar navbar-expand-lg navbar-light bg-light'>
+        <a href="/home" style='text-decoration: none;'>
+        <div class='social-btn flex-center' id="twitter">
+            <i class="fas fa-home"></i><span>Home</span>
         </div>
-    </nav>
+        </a>
+        <a href="/contactUs" style='text-decoration: none;'>
+            <div class='social-btn flex-center' id="linkedin">
+                <i class="fas fa-id-badge"></i><span>Contact Us</span>
+            </div>
+        </a> <a href="/aboutUs" style='text-decoration: none;'>
+            <div class='social-btn flex-center' id="github">
+                <i class="fas fa-info"></i><span>About Us</span>
+            </div>
+        </a>
+    </div>
+    <div id="header"></div>
+    <div id="body">
+        <div id="app-cover">
+            <div id="app">
+                <form method="get" action="">
+                    <div id="f-element">
+                        <div id="inp-cover"><input type="text" name="query" placeholder="Type something to search ..." autocomplete="off"></div>
+                    </div>
+                    <button type="submit" class="shadow"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            <div id="layer" title="Click the blue area to hide the form"></div>
+            <div id="init"></div>
+        </div>
+    </div>
 
-    <p>Contact Us</p>
+
+
+    <script>$("#header").load("Meno.html")
+
+        $(function() {
+            var app = $('#app'),
+                init = $('#init'),
+                layer = $('#layer'),
+                input = $('#inp-cover input'),
+                button = $('button');
+        
+            function toggleApp() {
+                app.toggleClass('opened');
+        
+                if (button.hasClass('shadow'))
+                    button.toggleClass('shadow');
+                else
+                    setTimeout(function() { button.toggleClass('shadow'); }, 300);
+        
+                if (app.hasClass('opened')) {
+                    setTimeout(function() { input.toggleClass('move-up'); }, 200);
+                    setTimeout(function() { input.focus(); }, 500);
+                } else
+                    setTimeout(function() { input.toggleClass('move-up').val(''); }, 200);
+        
+                if (!layer.hasClass('sl')) {
+                    setTimeout(function() {
+                        layer.addClass('sl');
+                    }, 800);
+                } else
+                    setTimeout(function() { layer.removeClass('sl'); }, 300);
+            }
+        
+            layer.on('click', toggleApp);
+            init.on('click', toggleApp);
+        });</script>
 </body>
 
 </html>

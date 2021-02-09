@@ -14,7 +14,7 @@ router.get('/:id', (req, res) => {
     console.log("dirname ===>  " + req.params.id);
     console.log("dirname ===>  " + __dirname);
     console.log("dirname ===>  " + __dirname, `../public/Html`);
-res.sendFile(path.join(__dirname, `../public/html`, `${req.params.id}.html`));
+res.sendFile(path.join(__dirname, `../public/html/card`, `${req.params.id}.html`));
 })
 
 module.exports = router
